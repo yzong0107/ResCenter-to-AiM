@@ -49,7 +49,7 @@ class AiM():
         self.driver.find_element(By.CSS_SELECTOR, "#mainForm\\3A CRQ_EDIT_content\\3AlocZoomType1\\3AlocZoomType1-2_button > .halflings").click()
         time.sleep(1)
         self.driver.find_element(By.ID, "mainForm:CRQ_EDIT_content:referenceNoValueType1").send_keys(reference)
-        self.driver.find_element(By.ID,"mainForm:CRQ_EDIT_content:connamevalueType1").send_keys("CS Space IWC")
+        self.driver.find_element(By.ID,"mainForm:CRQ_EDIT_content:connamevalueType1").send_keys("CS IWC")
         self.driver.find_element(By.ID,"mainForm:CRQ_EDIT_content:conphValueType1").send_keys("780-492-6045")
         self.driver.find_element(By.ID,"mainForm:CRQ_EDIT_content:conmcValueType1").send_keys("asiwc@ualberta.ca")
 
@@ -147,9 +147,9 @@ class ResCenter():
             current_type = options.first_selected_option.text
             if current_type!="Pest Control":
                 self.driver.find_element("xpath","//select[@name='ctl00$mainContent$ddWOType']/option[text()='General']").click() #202402: if it's pest control, leave it
-                canned_response = "Your request has been Assigned to Maintenance Staff (or another UofA Staff) who will visit your unit / room to respond to the issue(s) reported in order of all the priorities in Residence. This email serves as a Notice of Entry and is effective from 10 business days of being \"Assigned\" in our system. Urgent issues will be expedited. Thank you for your patience as Staff work diligently to address all issues and concerns reported.\n"
+                canned_response = "Your request has been Assigned to Maintenance Staff (or another UofA Staff) who will visit your unit / room to respond to the issue(s) reported in order of all the priorities in Residence. Urgent issues will be expedited. This email serves as a Notice of Entry and is effective from 10 business days of being \"Assigned\" in our system. Thank you for your patience as Staff work diligently to address all issues and concerns reported.\n"
             else:
-                canned_response="Your request has been Assigned to a Pest Control Technician who will visit your unit / room to respond to the issue(s) reported in order of all the priorities in Residence. This email serves as a Notice of Entry and is effective from 10 business days of being \"Assigned\" in our system. Urgent issues will be expedited. Thank you for your patience as Staff work diligently to address all issues and concerns reported.\n"
+                canned_response="Your request has been Assigned to a Pest Control Technician who will visit your unit / room to respond to the issue(s) reported in order of all the priorities in Residence. Urgent issues will be expedited. This email serves as a Notice of Entry and is effective from 10 business days of being \"Assigned\" in our system. Thank you for your patience as Staff work diligently to address all issues and concerns reported.\n"
             
             actions = ActionChains(self.driver)
             actions.move_to_element(self.driver.find_element(By.CSS_SELECTOR, "#ctl00_mainContent_txtDescription_FancyTextBoxTextArea"))
